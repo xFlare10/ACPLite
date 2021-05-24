@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/b_h_2"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.home.HomeFragment"
+        >
+
+
+        <TextView
+            android:id="@+id/txtAboutTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/iconBlue"
+            android:text="@string/arboreto"
+            android:layout_centerHorizontal="true"
+            />
+
+        <View
+            android:id="@+id/wave1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/wave_1"
+            android:rotation="180"
+            android:layout_below="@id/txtAboutTitle"
+            />
+        <View
+            android:id="@+id/wave2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/wave_1"
+            android:layout_marginTop="-5dp"
+            android:layout_below="@id/wave1"
+            />
+
+        <TextView
+            android:id="@+id/txtArboreto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/wave2"
+            android:layout_centerHorizontal="true"
+            android:text="Lorem ipsum"
+            android:textAlignment="center"
+            />
+
+        <View
+            android:id="@+id/wave3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/wave_3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txtArboreto"
+            />
+
+        <View
+            android:id="@+id/wave4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/wave_1"
+            android:layout_marginTop="-2dp"
+            android:layout_below="@id/wave3"
+            />
+
+        <TextView
+            android:id="@+id/txtTitle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-60dp"
+            android:text="@string/mision"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/iconBlue"
+            android:layout_below="@id/wave4"
+            />
+
+        <TextView
+            android:id="@+id/txtMision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/txtTitle1"
+            android:layout_centerHorizontal="true"
+            android:text="Lorem ipsum"
+            android:textAlignment="center"
+            />
+
+        <View
+            android:id="@+id/wave5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/footer_1"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txtMision"
+            />
+
+        <View
+            android:id="@+id/wave6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/wave_1"
+            android:layout_marginTop="-2dp"
+            android:layout_below="@id/wave5"
+            />
+
+        <TextView
+            android:id="@+id/txtTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-60dp"
+            android:text="@string/vision"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/iconBlue"
+            android:layout_below="@id/wave6"
+            />
+
+        <TextView
+            android:id="@+id/txtVision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/txtTitle2"
+            android:layout_centerHorizontal="true"
+            android:text="Lorem ipsum"
+            android:textAlignment="center"
+            />
+
+        <View
+            android:id="@+id/wave7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/footer_1"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txtVision"
+            />
+
+        <TextView
+            android:id="@+id/txtTitle3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-60dp"
+            android:text="@string/contacto"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_below="@id/wave7"
+            />
+
+        <TextView
+            android:id="@+id/txtContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_below="@id/txtTitle3"
+            android:layout_centerHorizontal="true"
+            android:text="@string/info"
+            android:textAlignment="center"
+            android:background="@drawable/rectangle_12"
+            />
+    </RelativeLayout>
+</ScrollView>

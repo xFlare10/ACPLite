@@ -21,4 +21,17 @@
     <string name="publicaciones">Publicaciones</string>
     <string name="fav">Favoritos</string>
     <string name="about">Acerca de</string>
+    <string name="arboreto">Arboreto Carmelo Palma</string>
+    <string name="mision">Misión</string>
+    <string name="vision">Visión</string>
+    <string name="contacto">Contacto</string>
+
+    <string name="info">
+        Planta Telefónica: +505 69519548
+        Celular: +505 68549888
+        Correo Electrónico: Emailme@pm.me
+        Dirección de Comunicación Institucional y Mercadeo: In porta augue quis massa mattis tincidunt nec non sem. Nullam faucibus tellus libero, interdum ultricies nibh maximus eu. Phasellus sed enim egestas, hendrerit odio nec, varius ex.
+    </string>
+    <string name="publish">Publicación:</string>
+    <string name="tree">Árbol:</string>
 </resources>
