@@ -21,4 +21,11 @@
     <string name="publicaciones">Publicaciones</string>
     <string name="fav">Favoritos</string>
     <string name="about">Acerca de</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_trees">Catálogo de Arboles</string>
+    <string name="treeName">Nombre de la imagen</string>
+    <string name="saveImageBtn">Guardar Imagen</string>
+    <string name="treeScientificName">Nombre científico del árbol</string>
+    <string name="treeDescription">Descripción</string>
 </resources>

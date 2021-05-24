@@ -3,24 +3,19 @@ package com.example.acplite.entidades;
 import android.graphics.Bitmap;
 
 public class Arbol {
-    private int treeID;
     private String treeName;
     private String treeScientificName;
+    private String treeDescription;
     private Bitmap treeImg;
 
-    public Arbol(int treeID, String treeName, String treeScientificName, Bitmap treeImg) {
-        this.treeID = treeID;
+    public Arbol() {
+    }
+
+    public Arbol(String treeName, String treeScientificName, String treeDescription, Bitmap treeImg) {
         this.treeName = treeName;
         this.treeScientificName = treeScientificName;
+        this.treeDescription = treeDescription;
         this.treeImg = treeImg;
-    }
-
-    public int getTreeID() {
-        return treeID;
-    }
-
-    public void setTreeID(int treeID) {
-        this.treeID = treeID;
     }
 
     public String getTreeName() {
@@ -37,6 +32,14 @@ public class Arbol {
 
     public void setTreeScientificName(String treeScientificName) {
         this.treeScientificName = treeScientificName;
+    }
+
+    public String getTreeDescription() {
+        return treeDescription;
+    }
+
+    public void setTreeDescription(String treeDescription) {
+        this.treeDescription = treeDescription;
     }
 
     public Bitmap getTreeImg() {
