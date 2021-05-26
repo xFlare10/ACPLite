@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.acplite.entidades.Arbol;
+import com.example.acplite.entidades.Productos;
 import com.example.acplite.utilidades.UtilidadesArbol;
 import com.example.acplite.utilidades.UtilidadesEvento;
 import com.example.acplite.utilidades.UtilidadesProducto;
@@ -84,6 +85,46 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
                 new String[]{UtilidadesArbol.CAMPO_NOMBRE, UtilidadesArbol.CAMPO_NOMBRE_CIENTIFICO,
                         UtilidadesArbol.CAMPO_DESCRIPCION, UtilidadesArbol.CAMPO_IMAGEN},
                 UtilidadesArbol.CAMPO_NOMBRE + " LIKE '" + treeName + "' ",
+                null, null, null, null);
+
+        return cursor;
+    }
+
+    // ================= METODOS CRUD DEL PRODUCTO ================= //
+
+    // METODO PARA GUARDAR UN ARBOL
+    public void storeProducto(Productos obj){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Bitmap imageToStore = obj.getProductImg();
+
+        outputStream = new ByteArrayOutputStream();
+        imageToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+        imageBytes = outputStream.toByteArray();
+        ContentValues values = new ContentValues();
+
+        values.put(UtilidadesProducto.CAMPO_ID, obj.getProductID());
+        values.put(UtilidadesProducto.CAMPO_NOMBRE, obj.getProductName());
+        values.put(UtilidadesProducto.CAMPO_PRECIO, obj.getProductPrice());
+        values.put(UtilidadesProducto.CAMPO_IMAGEN, imageBytes);
+
+        long cantidad = db.insert(UtilidadesProducto.PRODUCTS_TABLE_NAME, null, values);
+
+        if( cantidad != 0 ){
+            Toast.makeText(context, "Image added successfully", Toast.LENGTH_SHORT).show();
+            db.close();
+        } else {
+            Toast.makeText(context, "ERROR: Image not added", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // METODO PARA VALIDAR SI EXISTE UN ARBOL
+    public Cursor validateProduct(String id) throws SQLException {
+        Cursor cursor = null;
+        cursor = this.getReadableDatabase().query(
+                UtilidadesProducto.PRODUCTS_TABLE_NAME,
+                new String[]{UtilidadesProducto.CAMPO_ID, UtilidadesProducto.CAMPO_NOMBRE,
+                        UtilidadesProducto.CAMPO_PRECIO, UtilidadesProducto.CAMPO_IMAGEN},
+                UtilidadesProducto.CAMPO_ID + " LIKE '" + id + "' ",
                 null, null, null, null);
 
         return cursor;

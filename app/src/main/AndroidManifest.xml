@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TestNavDrwer">
-        <activity android:name=".ui.ActivityUDTree"></activity>
+        <activity android:name=".ui.ActivityUDProduct"></activity>
+        <activity android:name=".ui.ActivityProductRegister" />
+        <activity android:name=".ui.ActivityUDTree" />
         <activity android:name=".ui.ActivityTreeRegister" />
         <activity
             android:name=".MainActivity"

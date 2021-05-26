@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/saveTreeLayout"
+    tools:context=".ui.ActivityTreeRegister">
+
+    <TextView
+        android:id="@+id/txtvRegistrarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="@string/DetailProduct"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/etProductID1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/productID"
+        android:textColor="@color/white"
+        android:maxLength="25"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtvRegistrarProducto"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+
+    <EditText
+        android:id="@+id/etProductName1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/productName"
+        android:textColor="@color/white"
+        android:maxLength="35"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        app:layout_constraintRight_toRightOf="@id/etProductID1"
+        app:layout_constraintLeft_toLeftOf="@id/etProductID1"
+        app:layout_constraintTop_toBottomOf="@+id/etProductID1"
+        android:layout_marginTop="5dp"
+        />
+
+    <EditText
+        android:id="@+id/etProductPrice1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/productPrice"
+        android:textColor="@color/white"
+        android:singleLine="true"
+        app:layout_constraintRight_toRightOf="@id/etProductID1"
+        app:layout_constraintLeft_toLeftOf="@id/etProductID1"
+        app:layout_constraintTop_toBottomOf="@+id/etProductName1"
+        android:layout_marginTop="5dp"
+        />
+
+    <ImageView
+        android:id="@+id/productImg1"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        app:layout_constraintTop_toBottomOf="@id/etProductPrice1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:src="@drawable/ic_baseline_camera_alt_24"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@color/white"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintRight_toRightOf="@id/productImg1"
+        app:layout_constraintTop_toBottomOf="@id/productImg1"
+        app:layout_constraintLeft_toLeftOf="@id/productImg1"
+        >
+
+        <Button
+            android:id="@+id/btnUpdateProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/AzulOscuro"
+            android:text="@string/updateTreeBtn"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:onClick="clickear"
+            />
+
+        <Button
+            android:id="@+id/btnDeleteProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/AzulOscuro"
+            android:text="@string/deleteTreeBtn"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:onClick="clickear"
+            />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

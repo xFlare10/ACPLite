@@ -32,4 +32,10 @@
     <string name="DetailTree">Detalles del Árbol</string>
     <string name="updateTreeBtn">Actualizar</string>
     <string name="deleteTreeBtn">Eliminar</string>
+    <string name="RegistroProducts">Registro de Productos</string>
+    <string name="productName">Nombre</string>
+    <string name="productID">ID del producto</string>
+    <string name="productPrice">Precio</string>
+    <string name="fragmentProductos">Productos</string>
+    <string name="DetailProduct">Detalle del Producto</string>
 </resources>

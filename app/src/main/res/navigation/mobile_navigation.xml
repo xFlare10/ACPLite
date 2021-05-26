@@ -29,7 +29,7 @@
         tools:layout="@layout/fragment_trees" />
     <fragment
         android:id="@+id/fragmentProductos"
-        android:name="com.example.acplite.FragmentProductos"
-        android:label="fragment_productos"
+        android:name="com.example.acplite.ui.fragments.FragmentProductos"
+        android:label="@string/fragmentProductos"
         tools:layout="@layout/fragment_productos" />
 </navigation>

@@ -1,5 +1,6 @@
 package com.example.acplite.ui;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
@@ -8,7 +9,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +27,7 @@ import com.example.acplite.sqlite.ConexionSQLiteHelper;
 import com.example.acplite.utilidades.UtilidadesArbol;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
@@ -40,6 +44,10 @@ public class ActivityUDTree extends AppCompatActivity {
     ArrayList<Arbol> listaTrees;
     private ByteArrayOutputStream outputStream;
     private byte[] imageBytes;
+
+    private static final int PICK_IMAGE_REQUEST = 100;
+    private Uri imageFilePath;
+    private Bitmap imgToStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +76,39 @@ public class ActivityUDTree extends AppCompatActivity {
             Bitmap b = BitmapFactory.decodeByteArray( getIntent().getByteArrayExtra("imagenArbol"),
                     0,getIntent().getByteArrayExtra("imagenArbol").length);
             treeImg.setImageBitmap(b);
+        }
+
+        treeImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseImage();
+            }
+        });
+    }
+
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null &&
+                data.getData() != null){
+
+            imageFilePath = data.getData();
+            try {
+                imgToStore = MediaStore.Images.Media.getBitmap(getContentResolver(), imageFilePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            treeImg.setImageBitmap(imgToStore);
         }
     }
 
