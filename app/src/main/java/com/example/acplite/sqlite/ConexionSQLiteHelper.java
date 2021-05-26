@@ -2,6 +2,8 @@ package com.example.acplite.sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
@@ -47,7 +49,9 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    //TREES METHODS
+    // ================= METODOS CRUD DEL ARBOL ================= //
+
+    // METODO PARA GUARDAR UN ARBOL
     public void storeTree(Arbol obj){
         SQLiteDatabase db = this.getWritableDatabase();
         Bitmap imageToStore = obj.getTreeImg();
@@ -71,4 +75,18 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "ERROR: Image not added", Toast.LENGTH_SHORT).show();
         }
     }
+
+    // METODO PARA VALIDAR SI EXISTE UN ARBOL
+    public Cursor validateTree(String treeName) throws SQLException {
+        Cursor cursor = null;
+        cursor = this.getReadableDatabase().query(
+                UtilidadesArbol.TREES_TABLE_NAME,
+                new String[]{UtilidadesArbol.CAMPO_NOMBRE, UtilidadesArbol.CAMPO_NOMBRE_CIENTIFICO,
+                        UtilidadesArbol.CAMPO_DESCRIPCION, UtilidadesArbol.CAMPO_IMAGEN},
+                UtilidadesArbol.CAMPO_NOMBRE + " LIKE '" + treeName + "' ",
+                null, null, null, null);
+
+        return cursor;
+    }
+
 }

@@ -18,6 +18,12 @@ public class Arbol {
         this.treeImg = treeImg;
     }
 
+    public Arbol(String treeScientificName, String treeDescription, Bitmap treeImg) {
+        this.treeScientificName = treeScientificName;
+        this.treeDescription = treeDescription;
+        this.treeImg = treeImg;
+    }
+
     public String getTreeName() {
         return treeName;
     }

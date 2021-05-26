@@ -24,7 +24,12 @@
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/fragment_trees"
-        android:name="com.example.acplite.ui.trees.TreesFragment"
+        android:name="com.example.acplite.ui.fragments.TreesFragment"
         android:label="@string/menu_trees"
         tools:layout="@layout/fragment_trees" />
+    <fragment
+        android:id="@+id/fragmentProductos"
+        android:name="com.example.acplite.FragmentProductos"
+        android:label="fragment_productos"
+        tools:layout="@layout/fragment_productos" />
 </navigation>

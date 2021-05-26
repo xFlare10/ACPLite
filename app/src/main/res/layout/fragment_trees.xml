@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.trees.TreesFragment">
+    android:id="@+id/fragmentTrees"
+    tools:context=".ui.fragments.TreesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTrees"

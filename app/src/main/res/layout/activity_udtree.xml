@@ -15,14 +15,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="20dp"
-        android:text="@string/RegistroTrees"
+        android:text="@string/DetailTree"
         android:gravity="center"
         android:textSize="24sp"
         android:textColor="@color/white"
         />
 
     <EditText
-        android:id="@+id/etTreeName"
+        android:id="@+id/etTreeName1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/treeName"
@@ -40,7 +40,7 @@
         />
 
     <EditText
-        android:id="@+id/etTreeScientificName"
+        android:id="@+id/etTreeScientificName1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/treeScientificName"
@@ -49,31 +49,31 @@
         android:lines="1"
         android:maxLines="1"
         android:singleLine="true"
-        app:layout_constraintRight_toRightOf="@id/etTreeName"
-        app:layout_constraintLeft_toLeftOf="@id/etTreeName"
-        app:layout_constraintTop_toBottomOf="@+id/etTreeName"
+        app:layout_constraintRight_toRightOf="@id/etTreeName1"
+        app:layout_constraintLeft_toLeftOf="@id/etTreeName1"
+        app:layout_constraintTop_toBottomOf="@+id/etTreeName1"
         android:layout_marginTop="5dp"
         />
 
     <EditText
-        android:id="@+id/etTreeDescription"
+        android:id="@+id/etTreeDescription1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/treeDescription"
         android:textColor="@color/white"
         android:lines="3"
         android:gravity="top|left"
-        app:layout_constraintRight_toRightOf="@id/etTreeName"
-        app:layout_constraintLeft_toLeftOf="@id/etTreeName"
-        app:layout_constraintTop_toBottomOf="@+id/etTreeScientificName"
+        app:layout_constraintRight_toRightOf="@id/etTreeName1"
+        app:layout_constraintLeft_toLeftOf="@id/etTreeName1"
+        app:layout_constraintTop_toBottomOf="@+id/etTreeScientificName1"
         android:layout_marginTop="5dp"
         />
 
     <ImageView
-        android:id="@+id/treeImg"
+        android:id="@+id/treeImg1"
         android:layout_width="match_parent"
         android:layout_height="370dp"
-        app:layout_constraintTop_toBottomOf="@id/etTreeDescription"
+        app:layout_constraintTop_toBottomOf="@id/etTreeDescription1"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:src="@drawable/ic_baseline_camera_alt_24"
@@ -81,17 +81,38 @@
         android:backgroundTint="@color/white"
         />
 
-    <Button
-        android:id="@+id/btnSaveTree"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/treeImg"
-        app:layout_constraintRight_toRightOf="@id/treeImg"
-        app:layout_constraintLeft_toLeftOf="@id/treeImg"
-        android:backgroundTint="@color/AzulOscuro"
-        android:text="@string/saveImageBtn"
-        android:textColor="@color/white"
-        android:onClick="storeImage"
-        />
+        android:orientation="horizontal"
+        app:layout_constraintRight_toRightOf="@id/treeImg1"
+        app:layout_constraintTop_toBottomOf="@id/treeImg1"
+        app:layout_constraintLeft_toLeftOf="@id/treeImg1"
+        >
+
+        <Button
+            android:id="@+id/btnUpdateTree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/AzulOscuro"
+            android:text="@string/updateTreeBtn"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:onClick="clickear"
+            />
+
+        <Button
+            android:id="@+id/btnDeleteTree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/AzulOscuro"
+            android:text="@string/deleteTreeBtn"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:onClick="clickear"
+            />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

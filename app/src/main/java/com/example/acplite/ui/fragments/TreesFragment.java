@@ -1,4 +1,4 @@
-package com.example.acplite.ui.trees;
+package com.example.acplite.ui.fragments;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,10 +8,9 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,21 +18,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.acplite.R;
 import com.example.acplite.adapters.RecyclerTreesAdapter;
-import com.example.acplite.databinding.FragmentGalleryBinding;
 import com.example.acplite.databinding.FragmentTreesBinding;
 import com.example.acplite.entidades.Arbol;
+import com.example.acplite.helpers.ItemTapListener;
 import com.example.acplite.sqlite.ConexionSQLiteHelper;
-import com.example.acplite.sqlite.DataTrees;
 import com.example.acplite.ui.ActivityTreeRegister;
-import com.example.acplite.ui.gallery.GalleryViewModel;
+import com.example.acplite.ui.ActivityUDTree;
 import com.example.acplite.utilidades.UtilidadesArbol;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class TreesFragment extends Fragment {
@@ -53,14 +55,33 @@ public class TreesFragment extends Fragment {
         conn = new ConexionSQLiteHelper(getContext(), UtilidadesArbol.DB_NAME, null, 1);
 
         listaTrees = new ArrayList<>();
-
         rvTrees = vista.findViewById(R.id.rvTrees);
 
-        getData();
+        getData(conn);
 
         rvTrees.setLayoutManager(new LinearLayoutManager(getContext()));
         rvTrees.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-        adapter = new RecyclerTreesAdapter(listaTrees);
+
+        adapter = new RecyclerTreesAdapter(listaTrees, new ItemTapListener() {
+            @Override
+            public void onItemTap(View view, int position) {
+                Toast.makeText(getContext(), "Tocaste el item " + listaTrees.get(position).getTreeName(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity(), ActivityUDTree.class);
+                intent.putExtra("nombreArbol",listaTrees.get(position).getTreeName());
+                intent.putExtra("nombreCientificoArbol",listaTrees.get(position).getTreeScientificName());
+                intent.putExtra("descripcionArbol",listaTrees.get(position).getTreeDescription());
+
+                //PARA PASAR IMAGENES GRANDES CON PUT EXTRA HAY QUE HACE LAS 4 SIGUIENTES LINEAS
+                Bitmap b = listaTrees.get(position).getTreeImg(); // your bitmap
+                ByteArrayOutputStream bs = new ByteArrayOutputStream();
+                b.compress(Bitmap.CompressFormat.PNG, 50, bs);
+                intent.putExtra("imagenArbol",bs.toByteArray());
+
+                startActivity(intent);
+            }
+        });
+
         rvTrees.setAdapter(adapter);
 
         fab = vista.findViewById(R.id.fabToRegisterTree);
@@ -75,7 +96,8 @@ public class TreesFragment extends Fragment {
         return vista;
     }
 
-    public void getData(){
+    //THIS IS THE METHOD THAT LOADS ALL THE DATA IN THE RECYCLER VIEW
+    public void getData(ConexionSQLiteHelper conn){
         SQLiteDatabase db = conn.getWritableDatabase();
         byte[] imgBytes;
 
@@ -93,9 +115,16 @@ public class TreesFragment extends Fragment {
         }
     }
 
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getData(conn);
     }
 }

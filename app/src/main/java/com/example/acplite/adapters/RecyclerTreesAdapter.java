@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.acplite.R;
 import com.example.acplite.entidades.Arbol;
+import com.example.acplite.helpers.ItemTapListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -19,16 +20,20 @@ import java.util.ArrayList;
 public class RecyclerTreesAdapter extends RecyclerView.Adapter<RecyclerTreesAdapter.ViewHolder> {
 
     private ArrayList<Arbol> arbolesList;
+    private final ItemTapListener mTapListener;
 
-    public RecyclerTreesAdapter(ArrayList<Arbol> arbolesList) {
+    public RecyclerTreesAdapter(ArrayList<Arbol> arbolesList, ItemTapListener mTapListener) {
         this.arbolesList = arbolesList;
+        this.mTapListener = mTapListener;
     }
 
     @NonNull
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_trees, parent, false));
+        ViewHolder viewHolder = new ViewHolder(
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_trees, parent, false),
+                mTapListener);
         return viewHolder;
     }
 
@@ -49,8 +54,16 @@ public class RecyclerTreesAdapter extends RecyclerView.Adapter<RecyclerTreesAdap
         ImageView imgTrees;
         TextView txtNombre, txtNombreCientifico, txtDescripcion;
 
-        public ViewHolder(@NonNull @NotNull View itemView) {
+        public ViewHolder(@NonNull @NotNull View itemView, ItemTapListener mTapListener) {
             super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mTapListener.onItemTap(v, getAdapterPosition());
+                }
+            });
+
             imgTrees = itemView.findViewById(R.id.ImgTree);
             txtNombre = itemView.findViewById(R.id.txtTreeName);
             txtNombreCientifico = itemView.findViewById(R.id.txtTreeScientificName);

@@ -24,8 +24,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_trees">Catálogo de Arboles</string>
-    <string name="treeName">Nombre de la imagen</string>
+    <string name="treeName">Nombre del Árbol</string>
     <string name="saveImageBtn">Guardar Imagen</string>
     <string name="treeScientificName">Nombre científico del árbol</string>
     <string name="treeDescription">Descripción</string>
+    <string name="RegistroTrees">Registro de Arboles</string>
+    <string name="DetailTree">Detalles del Árbol</string>
+    <string name="updateTreeBtn">Actualizar</string>
+    <string name="deleteTreeBtn">Eliminar</string>
 </resources>
