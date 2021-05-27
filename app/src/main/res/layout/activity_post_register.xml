@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ActivityTreeRegister">
+
+    <TextView
+        android:id="@+id/txtvRegistrarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="@string/RegistroPosts"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/etPostName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/postName"
+        android:textColor="@color/white"
+        android:singleLine="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtvRegistrarProducto"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+
+    <Button
+        android:id="@+id/btnSaveProduct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etPostName"
+        app:layout_constraintRight_toRightOf="@id/etPostName"
+        app:layout_constraintLeft_toLeftOf="@id/etPostName"
+        android:backgroundTint="@color/AzulOscuro"
+        android:text="@string/saveImageBtn"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:onClick="storePost"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

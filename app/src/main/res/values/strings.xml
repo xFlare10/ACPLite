@@ -43,4 +43,8 @@
     <string name="eventName">Nombre del evento</string>
     <string name="DetailEvento">Detalle del Evento</string>
     <string name="fragmentEventos">Eventos</string>
+    <string name="RegistroPosts">Registro de Publicaciones</string>
+    <string name="postName">Nombre de la publicación</string>
+    <string name="DetailPost">Detalle de la publicación</string>
+    <string name="fragmentPosts">Publicaciones</string>
 </resources>

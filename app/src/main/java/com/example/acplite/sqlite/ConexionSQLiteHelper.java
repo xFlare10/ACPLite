@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.example.acplite.entidades.Arbol;
 import com.example.acplite.entidades.Evento;
 import com.example.acplite.entidades.Productos;
+import com.example.acplite.entidades.Publicacion;
 import com.example.acplite.utilidades.UtilidadesArbol;
 import com.example.acplite.utilidades.UtilidadesEvento;
 import com.example.acplite.utilidades.UtilidadesProducto;
@@ -154,6 +155,35 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         values.put(UtilidadesEvento.CAMPO_FECHA, obj.getEventDate());
 
         long cantidad = db.insert(UtilidadesEvento.EVENTS_TABLE_NAME, null, values);
+
+        if( cantidad != 0 ){
+            Toast.makeText(context, "Registro guardado", Toast.LENGTH_SHORT).show();
+            db.close();
+        } else {
+            Toast.makeText(context, "ERROR: No se guardo el registro", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // ================= METODOS CRUD DE LA PUBLICACION ================= //
+
+    public Cursor validatePost(String name) {
+        Cursor cursor = null;
+        cursor = this.getReadableDatabase().query(
+                UtilidadesPublicacion.POSTS_TABLE_NAME,
+                new String[]{UtilidadesPublicacion.CAMPO_NOMBRE},
+                UtilidadesPublicacion.CAMPO_NOMBRE + " LIKE '" + name + "' ",
+                null, null, null, null);
+
+        return cursor;
+    }
+
+    public void storePost(Publicacion obj) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(UtilidadesEvento.CAMPO_NOMBRE, obj.getPostName());
+
+        long cantidad = db.insert(UtilidadesPublicacion.POSTS_TABLE_NAME, null, values);
 
         if( cantidad != 0 ){
             Toast.makeText(context, "Registro guardado", Toast.LENGTH_SHORT).show();

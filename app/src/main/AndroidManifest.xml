@@ -4,12 +4,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TestNavDrwer">
-        <activity android:name=".ui.ActivityUDEvento"></activity>
+        <activity android:name=".ui.ActivityUDPublicacion"></activity>
+        <activity android:name=".ui.ActivityPostRegister" />
+        <activity android:name=".ui.ActivityUDEvento" />
         <activity android:name=".ui.ActivityEventRegister" />
         <activity android:name=".ui.ActivityUDProduct" />
         <activity android:name=".ui.ActivityProductRegister" />

@@ -39,7 +39,7 @@
         tools:layout="@layout/fragment_eventos" />
     <fragment
         android:id="@+id/fragmentPublicaciones"
-        android:name="com.example.acplite.FragmentPublicaciones"
-        android:label="fragment_publicaciones"
+        android:name="com.example.acplite.ui.fragments.FragmentPublicaciones"
+        android:label="@string/fragmentPosts"
         tools:layout="@layout/fragment_publicaciones" />
 </navigation>
