@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ActivityTreeRegister">
+
+    <TextView
+        android:id="@+id/txtvRegistrarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="@string/RegistroEventos"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/etEventName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/eventName"
+        android:textColor="@color/white"
+        android:maxLength="25"
+        android:singleLine="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtvRegistrarProducto"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+
+    <EditText
+        android:id="@+id/etEventDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/eventDate"
+        android:textColor="@color/white"
+        android:maxLength="35"
+        android:inputType="date"
+        android:singleLine="true"
+        app:layout_constraintRight_toRightOf="@id/etEventName"
+        app:layout_constraintLeft_toLeftOf="@id/etEventName"
+        app:layout_constraintTop_toBottomOf="@+id/etEventName"
+        android:layout_marginTop="5dp"
+        android:focusable="false"
+        android:clickable="true"
+        />
+
+    <Button
+        android:id="@+id/btnSaveProduct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etEventDate"
+        app:layout_constraintRight_toRightOf="@id/etEventDate"
+        app:layout_constraintLeft_toLeftOf="@id/etEventDate"
+        android:backgroundTint="@color/AzulOscuro"
+        android:text="@string/saveImageBtn"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:onClick="storeEvent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

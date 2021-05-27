@@ -32,4 +32,14 @@
         android:name="com.example.acplite.ui.fragments.FragmentProductos"
         android:label="@string/fragmentProductos"
         tools:layout="@layout/fragment_productos" />
+    <fragment
+        android:id="@+id/fragmentEventos"
+        android:name="com.example.acplite.ui.fragments.FragmentEventos"
+        android:label="@string/fragmentEventos"
+        tools:layout="@layout/fragment_eventos" />
+    <fragment
+        android:id="@+id/fragmentPublicaciones"
+        android:name="com.example.acplite.FragmentPublicaciones"
+        android:label="fragment_publicaciones"
+        tools:layout="@layout/fragment_publicaciones" />
 </navigation>

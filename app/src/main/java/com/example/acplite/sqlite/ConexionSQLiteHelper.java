@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.acplite.entidades.Arbol;
+import com.example.acplite.entidades.Evento;
 import com.example.acplite.entidades.Productos;
 import com.example.acplite.utilidades.UtilidadesArbol;
 import com.example.acplite.utilidades.UtilidadesEvento;
@@ -92,7 +93,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
 
     // ================= METODOS CRUD DEL PRODUCTO ================= //
 
-    // METODO PARA GUARDAR UN ARBOL
+    // METODO PARA GUARDAR UN PRODUCTO
     public void storeProducto(Productos obj){
         SQLiteDatabase db = this.getWritableDatabase();
         Bitmap imageToStore = obj.getProductImg();
@@ -117,7 +118,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    // METODO PARA VALIDAR SI EXISTE UN ARBOL
+    // METODO PARA VALIDAR SI EXISTE UN PRODUCTO
     public Cursor validateProduct(String id) throws SQLException {
         Cursor cursor = null;
         cursor = this.getReadableDatabase().query(
@@ -130,4 +131,35 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    // ================= METODOS CRUD DEL EVENTO ================= //
+
+    // METODO PARA VALIDAR UN EVENTO
+    public Cursor validateEvent(String name) {
+        Cursor cursor = null;
+        cursor = this.getReadableDatabase().query(
+                UtilidadesEvento.EVENTS_TABLE_NAME,
+                new String[]{UtilidadesEvento.CAMPO_NOMBRE, UtilidadesEvento.CAMPO_FECHA},
+                UtilidadesEvento.CAMPO_NOMBRE + " LIKE '" + name + "' ",
+                null, null, null, null);
+
+        return cursor;
+    }
+
+    //METODO PARA GUARDAR UN EVENTO
+    public void storeEvent(Evento obj) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(UtilidadesEvento.CAMPO_NOMBRE, obj.getEventName());
+        values.put(UtilidadesEvento.CAMPO_FECHA, obj.getEventDate());
+
+        long cantidad = db.insert(UtilidadesEvento.EVENTS_TABLE_NAME, null, values);
+
+        if( cantidad != 0 ){
+            Toast.makeText(context, "Registro guardado", Toast.LENGTH_SHORT).show();
+            db.close();
+        } else {
+            Toast.makeText(context, "ERROR: No se guardo el registro", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
