@@ -1,6 +1,6 @@
 # ACPLite
-#La versión final y funcional esta en LuFC_Branch (Con Java)
-#La versión final no tan funcional esta en TodoEnKotlin (Con Kotlin)
+# La versión final y funcional esta en LuFC_Branch (Con Java)
+# La versión final no tan funcional esta en TodoEnKotlin (Con Kotlin)
 Arboreto Carmelo Palma - mobile ver
 
 Min SDK version: 21 (Android 5.0 Lollipop)
